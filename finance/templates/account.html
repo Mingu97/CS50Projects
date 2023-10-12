@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block main%}
+<div class="container">
+    <div class="row no-gutters">
+        <p class="h4 inline">Account Management</p>
+        <div class="col-4">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item"><a class="nav-link active"> Change of Password </a></li>
+                </ul>
+        </div>
+        <div class="col-8 p-5">
+            <form method="post">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Current Password</span>
+                </div>
+                <input type="password" class="form-control" name="curr-password" placeholder="Current Password" aria-label="Current Password" aria-describedby="curr-password">
+              </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Password</span>
+                    </div>
+                    <input type="password" class="form-control" name="new-password" placeholder="New Password" aria-label="New Password" aria-describedby="new-password">
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="conf-password">Password</span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Confirm Password" aria-label="Confirm Password" aria-describedby="conf-password" name="conf-password">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-lg">Change Password</button>
+                </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

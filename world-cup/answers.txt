@@ -1,0 +1,19 @@
+Times:
+
+10 simulations: 0m0.028s
+100 simulations: 0m0.034s
+1000 simulations: 0m0.028s
+10000 simulations: 0m0.030s
+100000 simulations: 0m0.028s
+1000000 simulations: 0m0.030s
+
+Questions:
+
+Which predictions, if any, proved incorrect as you increased the number of simulations?:
+As I have increased the number of simulations the decimal point moved to the left with every ten/hundred/thousand I have added.
+For example with top 3 rankings and 10 Simulations I got a thousand %, then with a 100 I got a hundred %, with a 1000 I got a tens %
+The predictions I then tend to say might not be accurate or incorrect would be of 1000000(million), as then all values were of 0.0%
+
+Suppose you're charged a fee for each second of compute time your program uses.
+After how many simulations would you call the predictions "good enough"?:
+There should be a treshold for acceptable %. Ideally till 1000 simulations. As the others do not add up to 100%.

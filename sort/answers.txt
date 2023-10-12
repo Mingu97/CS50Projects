@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: After testing it out on different sample files and examining them I have noticed that its timing was one of the slowest compared to others. Except when I tested it on the ones that were already sorted. Its timing then was much faster then others, that means its lower bound is of Omega(N)
+
+sort2 uses: Merge sort
+
+How do you know?: It had the fastest timings out of them all except in sorted samples, especially when the sample file was more complex than others.
+
+sort3 uses: Selection sort
+
+How do you know?: It had a sort timing nearly in line with bubble sort except when I have tested a sample file that was already sorted. Its timing was much slower then.

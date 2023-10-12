@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert alert-primary mb-0 text-center" role="alert">
+                {{ messages[0][1] }}
+            </div>
+        {% endif %}
+
+    {% endwith %}
+{% endblock %}
+
+{% block main %}
+<h1>Portfolio</h1>
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Number of Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.symbol }}</td>
+            <td>{{ row.Name }}</td>
+            <td>{{ '%0.0f'| format(row.num_shares) }}</td>
+            <td>{{ row.price }}</td>
+            <td>{{ '%0.2f'|format(row.price * row.num_shares) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="border-0 fw-bold text-end">Total Value of Shares</td>
+            <td>{{ '%0.2f'|format (total_value)}} </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="border-0 fw-bold text-end">Cash</td>
+            <td>{{ '%0.2f'|format (cash) }}</td>
+        </tr>
+        <tr>
+            <td colspan="4" class="border-0 fw-bold text-end">Total</td>
+            <td> {{ '%0.2f'|format (total_value + cash) }} </td>
+        </tr>
+    </tfoot>
+
+
+</table>
+{% endblock %}

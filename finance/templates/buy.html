@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<form method="post">
+    <div class="container">
+        <div class="mb-3">
+            <input style="margin-top:20px" autocomplete="off" autofocus
+                class="form-control mx-auto w-auto" placeholder="Stock Symbol" type="text" name="symbol">
+        </div>
+        <div class="mb-3">
+            <input style="margin-top:20px" autocomplete="off" autofocus
+                class="form-control mx-auto w-auto" placeholder="Number of Shares" type="number" name="shares">
+            <button class="btn btn-primary" type="submit" style="margin-top:20px">Buy Shares</button>
+
+        </div>
+        <p name="avail_cash">Available Cash {{ cash }}</p>
+    </div>
+</form>
+
+
+{% endblock %}
