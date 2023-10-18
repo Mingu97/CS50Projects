@@ -14,7 +14,7 @@
 #product images
 /public/product-images
 #server details
-/src/api/server.js
+src/api/server.js
 
 # misc
 .DS_Store
