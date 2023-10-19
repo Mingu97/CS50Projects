@@ -1,7 +1,7 @@
 import './App.css';
 import ToolBar from './Navbar';
-import AllProducts from './pages/all-products';
-import PurchaseOrders from './pages/purchase_order';
+import AllProducts from './pages/AllProducts';
+import PurchaseOrders from './pages/PurchaseOrder';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Container from 'react-bootstrap/esm/Container';
