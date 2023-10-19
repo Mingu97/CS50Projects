@@ -2,42 +2,51 @@ import './App.css';
 import ToolBar from './Navbar';
 import AllProducts from './pages/all-products';
 import PurchaseOrders from './pages/purchase_order';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Container from 'react-bootstrap/esm/Container';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
-  {
-    path: "/home",
-    element: <div>Hello world!</div>,
-  },
-  {
-    path: "/all-products",
-    element: <AllProducts />,
-  },
-  {
-    path: "/purchase-order",
-    element: <PurchaseOrders />,
-  }
-]);
+import Container from 'react-bootstrap/esm/Container';
+import { SelectedItemsProvider } from './pages/SelectedItemsComponent';
+
 function App() {
+  console.log('App rendering');
   return (
     <div className="App">
-      <header>
-        <ToolBar />
-        <Container className="text-center">
-          <h1>Welcome to Katalog</h1>
-        </Container>
-      </header>
-      <main>
-        <RouterProvider router={router} />
-      </main>
+      <Router>
+        <header>
+          <ToolBar />
+          <Container className="text-center">
+            <h1>Welcome to Katalog</h1>
+          </Container>
+        </header>
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={<div>Hello world!</div>}
+            />
+            <Route
+              path="/home"
+              element={<div>Hello world!</div>}
+            />
+            <Route
+              path="/all-products"
+              element={
+                <SelectedItemsProvider>
+                  <AllProducts />
+                </SelectedItemsProvider>
+              }
+            />
+            <Route
+              path="/purchase-order"
+              element={
+                <SelectedItemsProvider>
+                  <PurchaseOrders />
+                </SelectedItemsProvider>
+              }
+            />
+          </Routes>
+        </main>
+      </Router>
     </div>
   );
 }
