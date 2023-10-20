@@ -15,7 +15,7 @@ const initialState = [];
 
 export function SelectedItemsProvider({ children }) {
   const [selectedItems, dispatch] = useReducer(selectedItemsReducer, initialState);
-
+  
   return (
     <SelectedItemsContext.Provider value={{ selectedItems, dispatch }}>
       {children}

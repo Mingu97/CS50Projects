@@ -1,10 +1,9 @@
 import './App.css';
 import ToolBar from './Navbar';
-import AllProducts from './pages/AllProducts';
+import AllProducts from './pages/components/AllProducts';
 import PurchaseOrders from './pages/PurchaseOrder';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import Container from 'react-bootstrap/esm/Container';
+import Container from 'react-bootstrap/Container';
 import { SelectedItemsProvider } from './pages/SelectedItemsComponent';
 
 function App() {
