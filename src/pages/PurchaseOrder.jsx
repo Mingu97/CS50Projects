@@ -1,44 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
+import TableHeader from './components/purchaseOrderTableComponents/TableHeaderComponent';
+import TableRow from './components/purchaseOrderTableComponents/TableRowComponent';
 
 const PurchaseOrders = () => {
-    // Define a state variable to store the selected items
-    const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
 
-    useEffect(() => {
-        // Retrieve selected items from local storage
-        const storedItems = localStorage.getItem('selectedItems');
-        if (storedItems) {
-            const parsedItems = JSON.parse(storedItems);
-            setSelectedItems(parsedItems);
-        }
-    }, []); // Empty dependency array to run this effect once
+  useEffect(() => {
+    const storedItems = localStorage.getItem('selectedItems');
+    if (storedItems) {
+      const parsedItems = JSON.parse(storedItems);
+      setSelectedItems(parsedItems);
+    }
+  }, []);
 
-    return (
-        <div>
-            <h2>Purchase Order</h2>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>Supplier Product Code</th>
-                        <th>Brand</th>
-                        <th>Description</th>
-                        <th>Item Code</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {selectedItems.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item['Supplier Product Code']}</td>
-                            <td>{item['Brand']}</td>
-                            <td>{item['Description']} {item['Single Unit Measure']} {item['Unit of Measure']}</td>
-                            <td>{item['Item Code']}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
-        </div>
-    );
+  return (
+    <div>
+      <h2>Purchase Order</h2>
+      <Table striped bordered hover>
+        <TableHeader headers={['Supplier Product Code', 'Brand', 'Description', 'Item Code']} />
+        <tbody>
+          {selectedItems.map((item, index) => (
+            <TableRow key={index} item={item} />
+          ))}
+        </tbody>
+      </Table>
+    </div>
+  );
 };
 
 export default PurchaseOrders;

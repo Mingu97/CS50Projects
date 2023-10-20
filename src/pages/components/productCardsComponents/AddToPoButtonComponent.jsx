@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { useSelectedItems } from '../../SelectedItemsComponent';
+import { useSelectedItems } from '../SelectedItemsComponent';
 
 function AddToPurchaseButton({ item }) {
   const addToPurchaseOrder = CreatePO(item);

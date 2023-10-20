@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import SearchBarComponent from './SearchBarComponent';
-import PaginationComponent from './PaginationComponent';
-import ProductCard from './productCardsComponents/ProductCard';
-import { fetchProducts, CalcPageIndices, CaseInsensitive } from './api'; // Import functions and constants
+import SearchBarComponent from './components/SearchBarComponent';
+import PaginationComponent from './components/PaginationComponent';
+import ProductCard from './components/productCardsComponents/ProductCard';
+import { fetchProducts, CalcPageIndices, CaseInsensitive } from './components/api'; // Import functions and constants
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);

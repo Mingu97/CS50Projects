@@ -1,10 +1,10 @@
 import './App.css';
-import ToolBar from './Navbar';
-import AllProducts from './pages/components/AllProducts';
+import ToolBar from './pages/components/NavBarComponent.jsx';
+import AllProducts from './pages/AllProducts';
 import PurchaseOrders from './pages/PurchaseOrder';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import { SelectedItemsProvider } from './pages/SelectedItemsComponent';
+import { SelectedItemsProvider } from './pages/components/SelectedItemsComponent';
 
 function App() {
   console.log('App rendering');
