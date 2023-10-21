@@ -11,6 +11,7 @@ const PurchaseOrders = () => {
     if (storedItems) {
       const parsedItems = JSON.parse(storedItems);
       setSelectedItems(parsedItems);
+      console.log(parsedItems)
     }
   }, []);
 
@@ -18,7 +19,7 @@ const PurchaseOrders = () => {
     <div>
       <h2>Purchase Order</h2>
       <Table striped bordered hover>
-        <TableHeader headers={['Supplier Product Code', 'Brand', 'Description', 'Item Code']} />
+        <TableHeader headers={['Supplier Product Code', 'Brand', 'Description', 'Item Code', 'Item Quantity']} />
         <tbody>
           {selectedItems.map((item, index) => (
             <TableRow key={index} item={item} />

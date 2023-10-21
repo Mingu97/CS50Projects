@@ -9,6 +9,7 @@ const TableRow = ({ item }) => {
         {item['Description']} {item['Single Unit Measure']} {item['Unit of Measure']}
       </td>
       <td>{item['Item Code']}</td>
+      <td>{item['Item Quantity']}</td>
     </tr>
   );
 };
