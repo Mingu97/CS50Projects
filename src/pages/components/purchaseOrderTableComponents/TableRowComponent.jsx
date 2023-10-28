@@ -1,6 +1,7 @@
 import React from 'react';
+import ItemQuantityInput from './ItemQuantityInput';
 
-const TableRow = ({ item }) => {
+const TableRow = ({ item, onQuantityChange  }) => {
   return (
     <tr>
       <td>{item['Supplier Product Code']}</td>
@@ -9,7 +10,8 @@ const TableRow = ({ item }) => {
         {item['Description']} {item['Single Unit Measure']} {item['Unit of Measure']}
       </td>
       <td>{item['Item Code']}</td>
-      <td>{item['Item Quantity']}</td>
+      <td><ItemQuantityInput item={item} onQuantityChange={onQuantityChange} /></td>
+
     </tr>
   );
 };

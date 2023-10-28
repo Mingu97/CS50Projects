@@ -13,9 +13,7 @@ function App() {
       <Router>
         <header>
           <ToolBar />
-          <Container className="text-center">
-            <h1>Welcome to Katalog</h1>
-          </Container>
+
         </header>
         <main>
           <Routes>
@@ -25,7 +23,11 @@ function App() {
             />
             <Route
               path="/home"
-              element={<div>Hello world!</div>}
+              element={
+              <Container className="text-center">
+                <h1>Welcome to Katalog</h1>          
+              </Container>
+              }
             />
             <Route
               path="/all-products"

@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 
 function ProductCardImage({ item }) {
+  console.log(process.env.PUBLIC_URL)
   return (
     <Card.Img
       variant="top"
