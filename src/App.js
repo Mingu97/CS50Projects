@@ -5,9 +5,16 @@ import PurchaseOrders from './pages/PurchaseOrder';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import { SelectedItemsProvider } from './pages/components/SelectedItemsComponent';
+import React from 'react'
 
 function App() {
   console.log('App rendering');
+
+  //Real Life 
+  //const productFields = ['Item Code', 'Supplier Product Code', 'Brand', 'Description', 'Single Unit Measure', 'Unit of Measure']
+  
+  //Runescape 
+  const productFields = ['id', 'name', 'cost']
   return (
     <div className="App">
       <Router>
@@ -31,7 +38,7 @@ function App() {
               path="/all-products"
               element={
                 <SelectedItemsProvider>
-                  <AllProducts />
+                  <AllProducts productFields={productFields} /> {/* Pass productFields as a prop */}
                 </SelectedItemsProvider>
               }
             />
@@ -39,7 +46,7 @@ function App() {
               path="/purchase-order"
               element={
                 <SelectedItemsProvider>
-                  <PurchaseOrders />
+                  <PurchaseOrders productFields={productFields} /> {/* Pass productFields as a prop */}
                 </SelectedItemsProvider>
               }
             />

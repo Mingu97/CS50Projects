@@ -1,17 +1,17 @@
 import React from 'react';
 
-const TableRow = ({ item }) => {
+const TableRow = ({ item, fields }) => {
+  fields = ['id','name','cost', 'Item Quantity']
   return (
     <tr>
-      <td>{item['Supplier Product Code']}</td>
-      <td>{item['Brand']}</td>
-      <td>
-        {item['Description']} {item['Single Unit Measure']} {item['Unit of Measure']}
-      </td>
-      <td>{item['Item Code']}</td>
-      <td>{item['Item Quantity']}</td>
+      {fields.map((field) => (
+        <td key={field}>
+          {item[field]}
+        </td>
+      ))}
     </tr>
   );
 };
+
 
 export default TableRow;
