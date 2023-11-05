@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+#product images
+/public/product-images
+
+#db details
+/api/db.js
+.env
