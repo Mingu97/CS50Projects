@@ -15,3 +15,6 @@
 #db details
 /api/db.js
 .env
+
+generatorKey.js
+secret-key.txt
