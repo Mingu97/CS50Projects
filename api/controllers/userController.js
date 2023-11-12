@@ -3,6 +3,7 @@ const { client } = require('../db'); // Import the 'client' from server.js
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const cookie = require('cookie');
+require('dotenv').config(); // Load environment variables from a .env file
 
 
 // Controller function for user registration
@@ -34,7 +35,7 @@ const register = async (req, res) => {
     const newUser = new User({
       username,
       email,
-      password: hashedPassword,
+      password: hashedPassword
     });
 
     await collection.insertOne(newUser);
@@ -70,13 +71,20 @@ const login = async (req, res, next) => {
     if (!passwordMatch) {
       return res.status(401).json({ message: 'Incorrect password' });
     }
-    const token = jwt.sign({ username: user.username }, process.env.MY_APP_SECRET_KEY, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id, username: user.username }, process.env.MY_APP_SECRET_KEY, { expiresIn: '1h' });
+    // Determine if the connection is secure and set the appropriate options
+    const isLocalhost = req.hostname === 'localhost';
+    const secureOption = isLocalhost ? false : true;
+    const sameSiteOption = isLocalhost ? 'Lax' : 'None';
+
+    // Set the cookie with HttpOnly flag, secure option, and sameSite option
+    res.cookie('myAppCookie', { token, userId: user._id }, { httpOnly: true, secure: secureOption, sameSite: sameSiteOption });
     res.status(200).json({ message: 'Login successful', token });
     await client.close();
 
   } catch (error) {
     console.error(error);
-    
+
     res.status(500).json({ message: 'Login failed' });
   }
 };
