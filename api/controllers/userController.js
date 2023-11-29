@@ -11,7 +11,6 @@ require('dotenv').config(); // Load environment variables from a .env file
 // Controller function for user registration
 const register = async (req, res) => {
   try {
-    await client.connect()
     const { username, email, password } = req.body;
 
     const collection = client.db('katalog').collection('_users');
@@ -49,14 +48,12 @@ const register = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Registration failed' });
   }
-  await client.close();
 
 
 };
 // Controller function for user login
 const login = async (req, res, next) => {
   try {
-    await client.connect();
     const { username, password } = req.body;
 
     const collection = client.db('katalog').collection('_users');
@@ -74,7 +71,7 @@ const login = async (req, res, next) => {
 
     const token = jwt.sign({ userId: user._id, username: user.username }, process.env.MY_APP_SECRET_KEY, { expiresIn: '1h' });
     const isLocalhost = req.hostname === 'localhost';
-    const secureOption = isLocalhost ? false : true;
+    //const secureOption = isLocalhost ? false : true;
     const sameSiteOption = isLocalhost ? 'Lax' : 'None';
 
      // Set the cookie with HttpOnly flag, secure option, and sameSite option
@@ -87,7 +84,6 @@ const login = async (req, res, next) => {
      const response = { message: 'Login successful', token, session: user.session };
 
      res.status(200).json(response);
-     await client.close();
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Login failed' });
@@ -97,13 +93,11 @@ const login = async (req, res, next) => {
 // Function to update user session with selected items
 const updateSession = async (userId, selectedItems) => {
   try {
-    await client.connect();
     const collection = client.db('katalog').collection('_users');
     await collection.updateOne({ _id: userId }, { $set: { session: selectedItems } });
   } catch (error) {
     console.error('Update session failed:', error);
   } finally {
-    await client.close();
   }
 };
 
@@ -129,7 +123,6 @@ const logout = async (req, res) => {
       const objectIdUserId = new ObjectId(userId);
 
       // Connect to the database
-      await client.connect();
 
       // Your logic to handle the selectedItems, e.g., update the user's session
       const collection = client.db('katalog').collection('_users');
@@ -148,7 +141,6 @@ const logout = async (req, res) => {
     res.status(500).json({ message: 'Logout failed' });
   } finally {
     // Close the database connection
-    await client.close();
   }
 };
 

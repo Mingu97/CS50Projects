@@ -14,7 +14,9 @@
 
 #db details
 /api/db.js
+/api/controllers/webexptoken.js
 .env
 
 generatorKey.js
 secret-key.txt
+

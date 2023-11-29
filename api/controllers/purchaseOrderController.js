@@ -13,13 +13,11 @@ const submitPO = async (req, res) => {
             return res.status(400).json({ message: 'Invalid request. Please provide valid items.' });
         }
         // Decode the JWT token to get the user information
-        const token = req.cookies.myAppCookie; // Use the correct cookie name
-        console.log('Token:', token); // Add this line
-        const decodedToken = jwt.verify(token.token, process.env.MY_APP_SECRET_KEY);
+        const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
+        const decodedToken = jwt.verify(token, process.env.MY_APP_SECRET_KEY);
         const userId = decodedToken.userId; // Use the correct key
 
         // Connect to the database
-        await client.connect();
         const collection = client.db('katalog').collection('_purchaseOrders');
 
         // Create an array to store all items
@@ -30,7 +28,7 @@ const submitPO = async (req, res) => {
             const { supplierProductCode, brand, description, itemCode, itemQuantity } = item;
 
             // Check if any required field is missing
-            if (!supplierProductCode || !brand || !description || !itemCode || !itemQuantity) {
+            if (!itemCode) {
                 return res.status(400).json({ message: 'Invalid request. Please provide all required fields for each item.' });
             }
 
@@ -64,11 +62,9 @@ const submitPO = async (req, res) => {
 
         // Send an error response
         res.status(500).json({ message: 'Purchase Order failed' });
-    } finally {
-        // Close the database connection
-        await client.close();
-    }
+    } 
 };
+
 
 
 module.exports = { submitPO };
