@@ -15,7 +15,7 @@ const port = process.env.PORT || 8080; // port 8080 if the PORT environment vari
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3001',
+  origin: process.env.CORS_ORIGIN || 'http://localhost:3001' || 'http://localhost:8080',
   credentials: true,
 }));
 

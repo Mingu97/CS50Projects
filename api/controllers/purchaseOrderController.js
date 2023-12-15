@@ -26,7 +26,7 @@ const submitPO = async (req, res) => {
         // Loop through items and add each to the array
         for (const item of items) {
             const { supplierProductCode, brand, description, itemCode, itemQuantity } = item;
-
+            console.log(item)
             // Check if any required field is missing
             if (!itemCode) {
                 return res.status(400).json({ message: 'Invalid request. Please provide all required fields for each item.' });

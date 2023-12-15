@@ -1,0 +1,102 @@
+[
+  {
+    "Supplier Product Code": "SupplierB-GHI789",
+    "Brand": "BrandX",
+    "Description": "Product2",
+    "Item Code": "ABC123",
+    "Item Quantity": 30,
+    "Single Unit Measure": "Set",
+    "Unit of Measure": "Dozen",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierB-GHI789",
+    "Brand": "BrandY",
+    "Description": "Product2",
+    "Item Code": "DEF456",
+    "Item Quantity": 20,
+    "Single Unit Measure": "Box",
+    "Unit of Measure": "Each",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierC-DEF456",
+    "Brand": "BrandX",
+    "Description": "Product1",
+    "Item Code": "GHI789",
+    "Item Quantity": 30,
+    "Single Unit Measure": "Set",
+    "Unit of Measure": "Dozen",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierC-DEF456",
+    "Brand": "BrandZ",
+    "Description": "Product2",
+    "Item Code": "DEF456",
+    "Item Quantity": 30,
+    "Single Unit Measure": "Piece",
+    "Unit of Measure": "Each",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierC-GHI789",
+    "Brand": "BrandY",
+    "Description": "Product3",
+    "Item Code": "ABC123",
+    "Item Quantity": 30,
+    "Single Unit Measure": "Box",
+    "Unit of Measure": "Dozen",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierA-GHI789",
+    "Brand": "BrandY",
+    "Description": "Product3",
+    "Item Code": "DEF456",
+    "Item Quantity": 20,
+    "Single Unit Measure": "Box",
+    "Unit of Measure": "Each",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierC-GHI789",
+    "Brand": "BrandX",
+    "Description": "Product2",
+    "Item Code": "GHI789",
+    "Item Quantity": 20,
+    "Single Unit Measure": "Box",
+    "Unit of Measure": "Case",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierA-DEF456",
+    "Brand": "BrandY",
+    "Description": "Product2",
+    "Item Code": "DEF456",
+    "Item Quantity": 20,
+    "Single Unit Measure": "Box",
+    "Unit of Measure": "Case",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierA-ABC123",
+    "Brand": "BrandY",
+    "Description": "Product2",
+    "Item Code": "ABC123",
+    "Item Quantity": 30,
+    "Single Unit Measure": "Piece",
+    "Unit of Measure": "Dozen",
+    "Item Status": "Approved"
+  },
+  {
+    "Supplier Product Code": "SupplierC-DEF456",
+    "Brand": "BrandZ",
+    "Description": "Product3",
+    "Item Code": "GHI789",
+    "Item Quantity": 30,
+    "Single Unit Measure": "Set",
+    "Unit of Measure": "Case",
+    "Item Status": "Approved"
+  }
+]

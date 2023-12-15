@@ -42,9 +42,6 @@ router.get('/all', authenticate, async (req, res) => {
                 hour12: true
             })
         }));
-
-        console.log(formattedPurchaseOrders);
-
         // Fetch all purchase orders for the specific user
         res.status(200).json(formattedPurchaseOrders);
     } catch (error) {

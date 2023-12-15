@@ -23,7 +23,7 @@ const authenticate = (req, res, next) => {
       res.clearCookie('myAppCookie');
 
       // Redirect to /login
-      return res.redirect('/login');
+      return res.status(401).json({message: "Expired Token"});
     } else {
       console.log("UNAUTHORISED ATTEMPT", error);
       return res.status(401).json({ message: 'Unauthorized' });
